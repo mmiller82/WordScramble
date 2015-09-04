@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestAll" verbose="2" >
+    <test name="noScramble">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+      
+        <parameter name="file" value="not"/>
+        <parameter name="output" value="IRONY is not a scramble of IRONY"/>
+          
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/> 
+        </classes>
+    </test>
+ 
+</suite>
