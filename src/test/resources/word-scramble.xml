@@ -7,8 +7,8 @@
             </run>
         </groups>
       
-        <parameter name="file" value="not"/>
-        <parameter name="output" value="IRONY is not a scramble of IRONY"/>
+        <parameter name="input" value="not"/>
+        <parameter name="expected" value="IRONY is not a scramble of IRONY"/>
           
         <classes>
             <class name="com.amplero.interview.test.WordScrambleTest"/> 

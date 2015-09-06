@@ -20,23 +20,24 @@ public class Processor {
         this.reader = r;
     }
     
-    public void createProcess(String file) {
+    public void createProcess(String file, String outputFile) {
         String classpath = "target/classes";
         String className = "com.amplero.interview.WordScrambleApp";
-        ProcessBuilder builder = new ProcessBuilder("java", "-cp", classpath, className);
+        ProcessBuilder builder = new ProcessBuilder("java", "-cp", classpath, className, file);
 
-        File log = new File("output.txt");
+        File log = new File(outputFile);
         builder.redirectErrorStream(true);
         builder.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
         
         try {
             Process process = builder.start();
-            process.exitValue();
-
+            Thread.sleep(1000);
             System.out.println("Process has been started.");
         } catch (IOException e) {
             System.out.println("IOException: " + e.getMessage());
             e.printStackTrace();
+        } catch (InterruptedException ex) {
+            System.out.println("InterruptedException: " + ex.getMessage());
         }
         
         System.out.println("Program terminated!");
