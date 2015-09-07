@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 import static org.junit.Assert.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +23,7 @@ public class WordScrambleTest  {
     @Parameters({"input"})
     @BeforeMethod(alwaysRun = true)
     public void setup(String input) throws Exception {
-        Processor process = new Processor(new InputStreamReader(System.in));
+        Processor process = new Processor();
         String inputPath = PATH + input;
         process.createProcess(inputPath, OUTPUT_FILE);
 
@@ -40,16 +39,16 @@ public class WordScrambleTest  {
 
         } catch (FileNotFoundException ex) {
             LOG.error(ex.getMessage());
+        } finally {
+            reader.close();
         }
     }
 
     @Parameters({"expected"})
     @Test(groups = {"functional","build"})
     public void runTest(String expected) {
-        System.out.println(expected);
+        LOG.info(expected);
         assertEquals(output,expected);
-
-        System.out.println("Test done");
     }
 
     @AfterMethod(alwaysRun = true)
@@ -68,5 +67,7 @@ public class WordScrambleTest  {
         if (!success) {
             throw new IllegalArgumentException("Delete: deletion failed");
         }
+
+        LOG.info("Test done");
     }
 }

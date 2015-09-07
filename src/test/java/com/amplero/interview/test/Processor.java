@@ -7,23 +7,18 @@ package com.amplero.interview.test;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
 
 /**
  *
  * @author Maury Miller
  */
 public class Processor {
-    private final Reader reader;
-
-    public Processor(Reader r) {
-        this.reader = r;
-    }
+    ProcessBuilder builder = null;
     
     public void createProcess(String file, String outputFile) {
         String classpath = "target/classes";
         String className = "com.amplero.interview.WordScrambleApp";
-        ProcessBuilder builder = new ProcessBuilder("java", "-cp", classpath, className, file);
+        builder = new ProcessBuilder("java", "-cp", classpath, className, file);
 
         File log = new File(outputFile);
         builder.redirectErrorStream(true);

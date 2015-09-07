@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+    <appender name="rolling" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="test.log"/>
+        <param name="MaxFileSize" value="200000KB"/>
+        <param name="threshold" value="debug"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                               value="%d{ISO8601} CS2 ProcessManager(%t) %c{1}.%M[%L] %p: %m%n"/>
+        </layout>
+    </appender>
+            
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="debug"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                               value="%d{DATE} | %-5.5p | %-8.8t | %-16.16c{1} | %-32.32C %4L | %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- Application-specific logging options -->
+    <root>
+        <priority value="debug"></priority>
+        <appender-ref ref="rolling"/>
+        <appender-ref ref="stdout"/>
+    </root>
+</log4j:configuration>
