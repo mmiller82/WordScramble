@@ -4,6 +4,7 @@ The Word Scramble program scores the difficulty of any particular scrambling of 
 depending on whether or not the scramble is not scrambled, easy to solve, a reasonable difficulty to solve or hard to solve.
 The Word Scramble program uses a set of heuristics including if the word looks real or if the scramble has letters in the correct place.
 
+## Test Approach
 I am using TestNG and the maven-failsafe-plugin to drive the integration tests.  TestNG is a test framework simular to JUnit but with
 better support for other frameworks like Spring and the ability to run tests in different threads.  The maven-failsafe-plugin is designed specifically
 to run integration tests where the maven-surefire-plugin is for unit tests.  Both can be found the POM. For this program, there are no unit tests which 
@@ -13,12 +14,14 @@ file separate the tests to provide easier maintenance, better defect localizatio
 These test principles come from Gerard Meszaros book xUnit Test Patterns.  
 The website is http://xunitpatterns.com/index.html.
 
+## Running and adding tests
 The tests can be executed with mvn verify command after cloning the project to your workspace with git clone 
 https://github.com/mmiller82/WordScramble.git (or unpacking the zip file).
 The results are displayed in the target/surefire-reports/index.html file. Maven integrates easily
 with continuous integration tools like Jenkins. Jenkins will display the results in the surefire-reports directory in it's UI.
 Tests can be added by adding a test file to the src/resources/input directory and adding a test case to the word-scramble.xml file.
 
+## Choice of solution
 I chose to automate the second solution. It allowed more flexibility in the testing aspect since it used a file as input.  This allowed the tester to add or change a test 
 fairly easily as described above. 
 The first solution does not have the same flexibility. You would have to modify the code to add or update test cases although you could probably follow the
