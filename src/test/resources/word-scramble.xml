@@ -1,18 +1,167 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TestAll" verbose="2" >
-    <test name="noScramble">
+    <test name="No Scramble">
         <groups>
             <run>
                 <include name="functional"  />
             </run>
         </groups>
-      
+
         <parameter name="input" value="not"/>
         <parameter name="expected" value="IRONY is not a scramble of IRONY"/>
-          
+
         <classes>
-            <class name="com.amplero.interview.test.WordScrambleTest"/> 
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
         </classes>
     </test>
- 
+
+    <test name="Fair Scramble">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="fair"/>
+        <parameter name="expected" value="RIONY is a fair scramble of IRONYMAPS is a fair scramble of SPAMINOYR is a fair scramble of IRONY"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+
+    <test name="Hard Scramble">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="hard"/>
+        <parameter name="expected" value="ONYRI is a hard scramble of IRONY"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+
+    <test name="Poor Scramble">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="poor"/>
+        <parameter name="expected" value="IOYRN is a poor scramble of IRONY"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+
+    <test name="Lowercase Scramble">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="lowercase"/>
+        <parameter name="expected" value="MAPS is a fair scramble of SPAM"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+
+    <test name="numbers">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="numbers"/>
+        <parameter name="expected" value="Skipping invalid input line in file. Invalid characters in words: Input [scrambled=1234, unscrambled=4321]"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+
+    <test name="One Input">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="one-input"/>
+        <parameter name="expected" value="Skipping invalid line in file. Line 1: MAPS"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+
+    <test name="One Input With Delimeter">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="one-input-with-delimeter"/>
+        <parameter name="expected" value="Skipping invalid line in file. Line 1: MAPS "/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+    
+    <test name="Special Characters">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="special-characters"/>
+        <parameter name="expected" value="Skipping invalid input line in file. Invalid characters in words: Input [scrambled=%*$#, unscrambled=#%*$]"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+    
+    <test name="Letter Combinations">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value="letter-combinations"/>
+        <parameter name="expected" value="BETTAL is a fair scramble of BATTLEWESHR is a hard scramble of SHREWABRKE is a fair scramble of BRAKETOOM is a hard scramble of MOOT"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>
+    
+    <test name="Parameter">
+        <groups>
+            <run>
+                <include name="functional"  />
+            </run>
+        </groups>
+
+        <parameter name="input" value=""/>
+        <parameter name="expected" value="Error launching Word Scramble App. Syntax: WordScrambleApp {input_file}"/>
+
+        <classes>
+            <class name="com.amplero.interview.test.WordScrambleTest"/>
+        </classes>
+    </test>                            
 </suite>
