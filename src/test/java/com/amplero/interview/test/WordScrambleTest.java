@@ -54,8 +54,8 @@ public class WordScrambleTest  {
     @Parameters({"expected"})
     @Test(groups = {"functional","build"})
     public void runTest(String expected) {
-        LOG.info(expected);
-        assertEquals(output,expected);
+        LOG.info("Expected: " + expected);
+        assertEquals(output.toString(),expected);
     }
 
     @AfterMethod(alwaysRun = true)

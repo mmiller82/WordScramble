@@ -15,6 +15,11 @@ import java.io.IOException;
 public class Processor {
     ProcessBuilder builder = null;
     
+    /**
+     * Method creates a process using the ProcessBuilder class.
+     * @param file
+     * @param outputFile 
+     */
     public void createProcess(String file, String outputFile) {
         String classpath = "target/classes";
         String className = "com.amplero.interview.WordScrambleApp";
