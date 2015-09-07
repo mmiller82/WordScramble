@@ -17,7 +17,6 @@ import org.testng.annotations.Test;
 public class WordScrambleTest  {
     /** slf4j logger */
     private static final Logger LOG = LoggerFactory.getLogger(WordScrambleTest.class);
-    private final String PATH = "target/test-classes/input/";
     private final String OUTPUT_FILE = "output.txt";
     private BufferedReader reader = null;
     private StringBuilder output = null;
@@ -26,8 +25,7 @@ public class WordScrambleTest  {
     @BeforeMethod(alwaysRun = true)
     public void setup(String input, @Optional String extra) throws Exception {
         Processor process = new Processor();
-        String inputPath = PATH + input;
-        process.createProcess(inputPath, OUTPUT_FILE);
+        process.createProcess(input, OUTPUT_FILE);
         output = new StringBuilder();
 
         try {

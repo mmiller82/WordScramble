@@ -14,6 +14,7 @@ import java.io.IOException;
  */
 public class Processor {
     ProcessBuilder builder = null;
+    private final String PATH = "target/test-classes/input/";
     
     /**
      * Method creates a process using the ProcessBuilder class.
@@ -23,7 +24,14 @@ public class Processor {
     public void createProcess(String file, String outputFile) {
         String classpath = "target/classes";
         String className = "com.amplero.interview.WordScrambleApp";
-        builder = new ProcessBuilder("java", "-cp", classpath, className, file);
+        String path = PATH + file;
+        
+        if (file == null || file.length() == 0) {
+            builder = new ProcessBuilder("java", "-cp", classpath, className);
+        } else {
+            builder = new ProcessBuilder("java", "-cp", classpath, className, path);
+            
+        }
 
         File log = new File(outputFile);
         builder.redirectErrorStream(true);
@@ -31,6 +39,7 @@ public class Processor {
         
         try {
             Process process = builder.start();
+            System.out.println(builder.command());
             Thread.sleep(1000);
             System.out.println("Process has been started.");
         } catch (IOException e) {
